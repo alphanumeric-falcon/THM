@@ -1,0 +1,41 @@
+Platform: TryHackMe
+Category: Web Security
+Difficulty: Easy
+
+He booked the quiet room. It's not on the floor plan, not in the brochure, not on any door. But port 8080 is wide open, and the rooms it never lists are the ones worth finding.
+Welcome to the Byte Lotus, where the WiFi is open, the app is free, and the concierge already knows your coffee order. 
+You spend these first days as a guest who simply notices things — a room that isn't on the floor plan, packets that leave every night at the same hour, a profile assembled from two breakfasts and a livestream.
+The Byte Lotus guest-experience platform went live in a hurry, and the night-shift developer shipped more than the website.
+
+TODAY'S ITINERARY
+Dump the exposed source code.
+Find the flag.
+
+
+1.Objective
+Dump the exposed source code and retrieve the flag
+
+
+2.Reconnaissance
+The challenge description suggested that the developer had exposed more than just the website.
+The application was accessible on TCP port 8080
+
+3.Enumeration
+Performed directory enumeration using ffuf: ffuf -u http://TARGET:8080/FUZZ \-w /usr/share/wordlists/dirb/common.txt, which lead to a .git/HEAD, ref: refs/heads/main which confirm  that the git was publicly accessible
+
+4.Source Code, I found files:
+./app.js
+./README.md- this one contained the actual flag, that had not been removed bef dep
+./index.html
+
+
+5. Vulnerability
+Exposed Git Repository
+OWASP
+A05 Security Misconfiguration
+
+6.Mitigation
+-Never expose the .git directory
+-Remove VCS metadata before deployment
+-Block access to hidden files
+-Review repositories before production deployment
