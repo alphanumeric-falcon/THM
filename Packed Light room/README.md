@@ -29,6 +29,37 @@ a separate HTTP request, disguised as an ordinary session cookie.
 - Extracted from the pcap, in chronological order (by timestamp), all
   requests to `34.41.103.191:8080` containing the header
   `Cookie: hotel_sess_state=<base64>`
+'1. HA==
+ 2. AA==
+ 3. BQ==
+ 4. Mw==
+ 5. Hg==
+ 6. ew==
+ 7. Og==
+ 8. fA==
+ 9. Fw==
+10. eQ==
+11. Ow==
+12. Fw==
+13. Pw==
+14. fA==
+15. PA==
+16. Kw==
+17. IA==
+18. eQ==
+19. Jg==
+20. Lw==
+21. Fw==
+22. eA==
+23. Pg==
+24. LQ==
+25. Gg==
+26. Fw==
+27. MQ==
+28. eA==
+29. PQ==
+30. NQ=='
+
 - For each value: `base64_decode` -> XOR with the key found in
   `updates.py` -> decoded character
 - Concatenating the characters in order reconstructed the text typed on the
