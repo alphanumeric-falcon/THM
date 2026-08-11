@@ -41,10 +41,8 @@ Decoding and reassembling all the captured keystrokes reveals the flag in
 
 Tools Used
 
-- `ffuf` — discovering exposed `.git` (earlier stage of the lab)
-- `git-dumper` — extracting the repo from the exposed `.git`
-- Python `scapy` — parsing the pcap, extracting HTTP payload per packet
-- Python `base64` + manual XOR — decrypting the exfiltrated data
+- Wireshark
+- cyberchef.org to decript the format 
 
 Lessons / Observations
 
